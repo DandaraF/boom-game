@@ -9,6 +9,10 @@ function adicionarBalao() {
 
   elementoImg.setAttribute("src", "./assets/baloon.png");
   elementoImg.setAttribute("class", "balao");
+  elementoImg.setAttribute("id", "balao");
+  elementoImg.setAttribute("onclick", "removerBalao()");
+  
+  
 
   const valorLeft = Math.round(Math.random() * 90);
   const valorTop = Math.round(Math.random() * 90);
@@ -26,4 +30,17 @@ function adicionarBalao() {
 
 setInterval(adicionarBalao, 3000); //3000 milesegundos = 3 segundos
 
-// adicionarBalao();
+
+function removerBalao(elemento) {
+
+  var no = document.getElementById("balao");
+  console.log(" ==========>   ", no);
+if (no.parentNode) {
+  no.parentNode.removeChild(no);
+}
+}
+  
+//remove o que foi criado por ultimo
+
+
+// var noRemovido = containerBaloes.removeChild(elemento);
