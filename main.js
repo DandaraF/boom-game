@@ -40,7 +40,3 @@ if (no.parentNode) {
 }
 }
   
-//remove o que foi criado por ultimo
-
-
-// var noRemovido = containerBaloes.removeChild(elemento);
