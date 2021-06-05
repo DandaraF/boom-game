@@ -11,10 +11,6 @@
 
 const containerBaloes = document.querySelector(".container-baloes");
 
-<<<<<<< HEAD
-=======
-let pontuacao = 0;
->>>>>>> 784d9a58293665674065029dd311d906e06a31f8
 
 function adicionarBalao() {
 
@@ -31,44 +27,14 @@ function adicionarBalao() {
   elementoImg.style.left = valorLeft + "vw";
   elementoImg.style.top = valorTop + "vh";
 
-<<<<<<< HEAD
-=======
-  // usando função separada para remover
-  elementoImg.addEventListener("click", () => removeBalao(elementoImg));
-
-  // + 1 opção de remoção do elemento
-  // elementoImg.addEventListener("click", (event) => {
-  // event.target.remove();
-  // });
->>>>>>> 784d9a58293665674065029dd311d906e06a31f8
 
   elementoImg.addEventListener("click", () => {
     containerBaloes.removeChild(elementoImg);
   })
   containerBaloes.appendChild(elementoImg);
 
-<<<<<<< HEAD
 
 
-=======
-  const arrayBaloes = document.querySelectorAll(".balao");
-  const quantidadeDeBaloes = arrayBaloes.length;
-
-  // PERDE
-  if (quantidadeDeBaloes === 3) {
-    clearInterval(intervalBalao);
-
-    alert("Você perdeu!");
-    pontuacao = 0;
-    atualizarPontuacao(0);
-
-    const arrayElementosFilhos = Array.from(containerBaloes.children);
-
-    arrayElementosFilhos.forEach((elementoFilho) => {
-      removeBalao(elementoFilho, false, false);
-    });
-  }
->>>>>>> 784d9a58293665674065029dd311d906e06a31f8
 }
 
 function removeBalao(element, executarSom = true, somarPontuacao = true) {
@@ -92,16 +58,6 @@ function atualizarPontuacao(novaPontuacao) {
   elementoPontuacao.textContent = novaPontuacao;
 }
 
-<<<<<<< HEAD
 
-  // var no = document.getElementById("balao"); //está pegando o 1 elemento
-  // var elemento = document.imag
-  // console.log(" ==========>   ", elemento);
-// if (no.parentNode) {
-//   no.parentNode.removeChild(no);
-// }
 
   
-=======
-const intervalBalao = setInterval(adicionarBalao, 3000); //3000 milesegundos = 3 segundos
->>>>>>> 784d9a58293665674065029dd311d906e06a31f8
