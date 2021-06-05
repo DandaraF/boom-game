@@ -11,30 +11,47 @@
 
 const containerBaloes = document.querySelector(".container-baloes");
 
+let pontuacao = 0;
 
 function adicionarBalao() {
-
   const elementoImg = document.createElement("img");
 
   elementoImg.setAttribute("src", "./assets/baloon.png");
   elementoImg.setAttribute("class", "balao");
-  // elementoImg.setAttribute("id", "balao");
-  // elementoImg.setAttribute("onclick", "removerBalao()");
-  
+
   const valorLeft = Math.round(Math.random() * 90);
   const valorTop = Math.round(Math.random() * 90);
 
   elementoImg.style.left = valorLeft + "vw";
   elementoImg.style.top = valorTop + "vh";
 
+  // usando função separada para remover
+  elementoImg.addEventListener("click", () => removeBalao(elementoImg));
 
-  elementoImg.addEventListener("click", () => {
-    containerBaloes.removeChild(elementoImg);
-  })
+  // + 1 opção de remoção do elemento
+  // elementoImg.addEventListener("click", (event) => {
+  // event.target.remove();
+  // });
+
   containerBaloes.appendChild(elementoImg);
 
+  const arrayBaloes = document.querySelectorAll(".balao");
+  const quantidadeDeBaloes = arrayBaloes.length;
 
+  // PERDE
+  if (quantidadeDeBaloes === 3) {
+    clearInterval(intervalBalao);
 
+    alert("Você perdeu!");
+    pontuacao = 0;
+    atualizarPontuacao(0);
+
+    const arrayElementosFilhos = Array.from(containerBaloes.children);
+
+    arrayElementosFilhos.forEach((elementoFilho) => {
+      removeBalao(elementoFilho, false, false);
+    });
+  }
 }
 
 function removeBalao(element, executarSom = true, somarPontuacao = true) {
@@ -58,6 +75,4 @@ function atualizarPontuacao(novaPontuacao) {
   elementoPontuacao.textContent = novaPontuacao;
 }
 
-
-
-  
+const intervalBalao = setInterval(adicionarBalao, 3000); //3000 milesegundos = 3 segundos
